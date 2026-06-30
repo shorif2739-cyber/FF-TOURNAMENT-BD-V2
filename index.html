@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FF Tournament BD</title>
+
+<meta name="theme-color" content="#ff7b00">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- LOADING SCREEN -->
+<!-- ========================= -->
+
+<div id="loadingScreen">
+
+<div class="loadingLogo">
+
+<img src="assets/logo.png" id="loadingLogo">
+
+<h1>FF TOURNAMENT BD</h1>
+
+<p>Loading...</p>
+
+<div class="loadingBar">
+
+<div class="loadingProgress"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- LOGIN PAGE -->
+<!-- ========================= -->
+
+<section id="loginPage" class="page loginPage hidden">
+
+<div class="loginBox">
+
+<img src="assets/logo.png" class="logo">
+
+<h1>FF TOURNAMENT BD</h1>
+
+<p class="subTitle">
+
+Play Tournament • Win Real Cash
+
+</p>
+
+<button id="googleLoginBtn">
+
+<img src="assets/google.png">
+
+<span>Continue with Google</span>
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MAIN APP -->
+<!-- ========================= -->
+
+<div id="app" class="hidden">
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+<div class="leftHeader">
+
+<img src="assets/logo.png" class="headerLogo">
+
+<div>
+
+<h2>
+
+FF Tournament BD
+
+</h2>
+
+<p>
+
+Bangladesh Esports Platform
+
+</p>
+
+</div>
+
+</div>
+
+<div class="rightHeader">
+
+<div class="walletCard">
+
+<span>Wallet</span>
+
+<h2 id="wallet">
+
+৳0
+
+</h2>
+
+</div>
+
+<img id="profilePhoto" class="profilePhoto">
+
+</div>
+
+</header>
+
+<!-- ========================= -->
+<!-- NOTICE -->
+<!-- ========================= -->
+
+<section class="noticeBar">
+
+<marquee id="noticeText">
+
+Welcome To FF Tournament BD
+
+</marquee>
+
+</section>
+
+<!-- ========================= -->
+<!-- HOME BANNER -->
+<!-- ========================= -->
+
+<section class="bannerSlider">
+
+<div class="banner active">
+
+<img src="assets/banner1.jpg">
+
+</div>
+
+<div class="banner">
+
+<img src="assets/banner2.jpg">
+
+</div>
+
+<div class="banner">
+
+<img src="assets/banner3.jpg">
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MENU -->
+<!-- ========================= -->
+
+<nav class="bottomMenu">
+
+<button class="menu active" data-page="homePage">
+
+🏠
+
+<span>Home</span>
+
+</button>
+
+<button class="menu" data-page="matchPage">
+
+🎮
+
+<span>Match</span>
+
+</button>
+
+<button class="menu" data-page="walletPage">
+
+💰
+
+<span>Wallet</span>
+
+</button>
+
+<button class="menu" data-page="profilePage">
+
+👤
+
+<span>Profile</span>
+
+</button>
+
+</nav>
+
+<!-- ========================= -->
+<!-- HOME PAGE -->
+<!-- ========================= -->
+
+<section id="homePage" class="pageView active">
+
+<div class="sectionTitle">
+
+🔥 Live Tournament
+
+</div>
+
+<div id="homeMatchList">
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- MATCH PAGE -->
+<!-- ========================= -->
+
+<section id="matchPage" class="pageView">
+
+<div id="selectedMatch" class="selectedMatchCard"></div>
+
+<div class="joinCard">
+
+<h2>Join Tournament</h2>
+
+<input
+type="text"
+id="gameName"
+placeholder="Game Name">
+
+<input
+type="text"
+id="gameUid"
+placeholder="Free Fire UID">
+
+<button id="joinMatchBtn">
+
+JOIN NOW
+
+</button>
+
+</div>
+
+<div class="sectionTitle">
+
+👥 Joined Players
+
+</div>
+
+<div id="joinedPlayers"></div>
+
+</section>
+
+<!-- ========================= -->
+<!-- WALLET PAGE -->
+<!-- ========================= -->
+
+<section id="walletPage" class="pageView">
+
+<div class="walletMainCard">
+
+<h1 id="walletBalance">
+
+৳0
+
+</h1>
+
+<p>Available Balance</p>
+
+</div>
+
+<div class="walletButtons">
+
+<button id="depositBtn">
+
+Deposit
+
+</button>
+
+<button id="withdrawBtn">
+
+Withdraw
+
+</button>
+
+</div>
+
+<div class="sectionTitle">
+
+Transaction History
+
+</div>
+
+<div id="historyList"></div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PROFILE PAGE -->
+<!-- ========================= -->
+
+<section id="profilePage" class="pageView">
+
+<div class="profileCard">
+
+<img
+id="profilePhotoLarge"
+class="profileImage"
+src="assets/profile.png">
+
+<h2 id="userName">
+
+Player Name
+
+</h2>
+
+<p id="userEmail">
+
+player@email.com
+
+</p>
+
+<p id="userUid">
+
+UID : -----
+
+</p>
+
+<button id="editProfileBtn">
+
+Edit Profile
+
+</button>
+
+</div>
+
+<div class="profileMenu">
+
+<button data-page="myMatchesPage">
+
+My Matches
+
+</button>
+
+<button data-page="rulesPage">
+
+Rules
+
+</button>
+
+<button data-page="supportPage">
+
+Support
+
+</button>
+
+<button id="logoutBtn">
+
+Logout
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MY MATCHES -->
+<!-- ========================= -->
+
+<section
+id="myMatchesPage"
+class="pageView">
+
+<div class="sectionTitle">
+
+🎮 My Joined Matches
+
+</div>
+
+<div id="myMatches"></div>
+
+</section>
+<!-- ========================= -->
+<!-- RULES PAGE -->
+<!-- ========================= -->
+
+<section id="rulesPage" class="pageView">
+
+<div class="sectionTitle">
+
+📜 Tournament Rules
+
+</div>
+
+<div class="rulesCard">
+
+<p id="rulesText">
+
+Rules will appear here...
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SUPPORT PAGE -->
+<!-- ========================= -->
+
+<section id="supportPage" class="pageView">
+
+<div class="sectionTitle">
+
+☎ Support Center
+
+</div>
+
+<div class="supportCard">
+
+<button id="supportBtn">
+
+WhatsApp Support
+
+</button>
+
+<button id="telegramBtn">
+
+Telegram Group
+
+</button>
+
+<button id="facebookBtn">
+
+Facebook Page
+
+</button>
+
+<button id="emailBtn">
+
+Email Support
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- ADMIN PAGE -->
+<!-- ========================= -->
+
+<section id="adminPage" class="pageView hidden">
+
+<div class="sectionTitle">
+
+🛡 Admin Dashboard
+
+</div>
+
+<div id="adminContent">
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- DEPOSIT MODAL -->
+<!-- ========================= -->
+
+<div id="depositModal" class="modal hidden">
+
+<div class="modalBox">
+
+<h2>
+
+Deposit Balance
+
+</h2>
+
+<input
+type="number"
+id="depositAmount"
+placeholder="Amount">
+
+<select id="depositMethod">
+
+<option value="bKash">bKash</option>
+
+<option value="Nagad">Nagad</option>
+
+<option value="Rocket">Rocket</option>
+
+</select>
+
+<input
+type="text"
+id="senderNumber"
+placeholder="Sender Number">
+
+<input
+type="text"
+id="trxId"
+placeholder="Transaction ID">
+
+<button id="submitDepositBtn">
+
+Submit Deposit
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- WITHDRAW MODAL -->
+<!-- ========================= -->
+
+<div id="withdrawModal" class="modal hidden">
+
+<div class="modalBox">
+
+<h2>
+
+Withdraw Balance
+
+</h2>
+
+<input
+type="number"
+id="withdrawAmount"
+placeholder="Amount">
+
+<input
+type="text"
+id="withdrawNumber"
+placeholder="bKash / Nagad Number">
+
+<button id="submitWithdrawBtn">
+
+Submit Withdraw
+
+</button>
+
+</div>
+
+</div>
+<!-- ========================= -->
+<!-- WINNERS PAGE -->
+<!-- ========================= -->
+
+<section id="winnerPage" class="pageView">
+
+<div class="sectionTitle">
+
+🏆 Winners
+
+</div>
+
+<div id="winnerList">
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- REFERRAL PAGE -->
+<!-- ========================= -->
+
+<section id="referralPage" class="pageView">
+
+<div class="sectionTitle">
+
+🎁 Referral Bonus
+
+</div>
+
+<div class="referralCard">
+
+<h3>Your Referral Code</h3>
+
+<div id="referralCode">
+
+Loading...
+
+</div>
+
+<button id="copyReferralBtn">
+
+Copy Code
+
+</button>
+
+<h3>
+
+Invite Friends & Earn Bonus
+
+</h3>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- LOADING MODAL -->
+<!-- ========================= -->
+
+<div id="loadingModal" class="hidden">
+
+<div class="loaderBox">
+
+<div class="loader"></div>
+
+<p>
+
+Please Wait...
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- TOAST -->
+<!-- ========================= -->
+
+<div id="toast">
+
+<span id="toastText">
+
+Done
+
+</span>
+
+</div>
+
+<!-- ========================= -->
+<!-- FIREBASE -->
+<!-- ========================= -->
+
+<script type="module" src="firebase.js"></script>
+
+<!-- ========================= -->
+<!-- APP -->
+<!-- ========================= -->
+
+<script type="module" src="app.js"></script>
+
+</body>
+
+</html>

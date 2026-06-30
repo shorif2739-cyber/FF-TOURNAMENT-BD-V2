@@ -1,0 +1,989 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0b0b0b;
+color:#fff;
+overflow-x:hidden;
+}
+
+.hidden{
+display:none!important;
+}
+
+img{
+display:block;
+max-width:100%;
+}
+
+button{
+cursor:pointer;
+border:none;
+outline:none;
+transition:.3s;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:14px 16px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.12);
+background:#171717;
+color:#fff;
+outline:none;
+font-size:15px;
+margin-top:12px;
+}
+
+.pageView{
+display:none;
+padding:18px;
+padding-bottom:95px;
+animation:fade .35s;
+}
+
+.pageView.active{
+display:block;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.sectionTitle{
+font-size:20px;
+font-weight:700;
+margin:18px 0;
+color:#ff9800;
+}
+
+#app{
+min-height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94)),
+url("assets/bg.jpg");
+background-size:cover;
+background-position:center;
+}
+/* ========================= */
+/* LOADING SCREEN */
+/* ========================= */
+
+#loadingScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#050505;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999999;
+}
+
+.loadingLogo{
+text-align:center;
+}
+
+#loadingLogo{
+width:120px;
+height:120px;
+margin:auto;
+animation:logoSpin 2s linear infinite;
+}
+
+.loadingLogo h1{
+margin-top:20px;
+font-size:28px;
+font-weight:700;
+color:#ff9800;
+}
+
+.loadingLogo p{
+margin:10px 0 20px;
+color:#bbb;
+font-size:15px;
+}
+
+.loadingBar{
+width:230px;
+height:8px;
+background:#222;
+border-radius:50px;
+overflow:hidden;
+margin:auto;
+}
+
+.loadingProgress{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#ff6a00,#ffb300);
+animation:loadingBar 2s linear infinite;
+}
+
+@keyframes loadingBar{
+
+0%{
+width:0%;
+}
+
+100%{
+width:100%;
+}
+
+}
+
+@keyframes logoSpin{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* ========================= */
+/* LOGIN PAGE */
+/* ========================= */
+
+.loginPage{
+width:100%;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.95)),
+url("assets/login-bg.jpg");
+background-size:cover;
+background-position:center;
+}
+
+.loginBox{
+width:100%;
+max-width:380px;
+background:rgba(20,20,20,.92);
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
+padding:30px;
+text-align:center;
+backdrop-filter:blur(14px);
+box-shadow:0 0 30px rgba(255,136,0,.25);
+}
+
+.logo{
+width:120px;
+margin:auto;
+}
+
+.loginBox h1{
+margin-top:18px;
+font-size:28px;
+color:#ff9800;
+}
+
+.subTitle{
+margin:12px 0 25px;
+color:#cfcfcf;
+font-size:15px;
+}
+
+#googleLoginBtn{
+width:100%;
+height:56px;
+border-radius:14px;
+background:#ff9800;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+font-size:17px;
+font-weight:700;
+color:#111;
+}
+
+#googleLoginBtn img{
+width:24px;
+height:24px;
+}
+
+#googleLoginBtn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 18px rgba(255,152,0,.45);
+}
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+position:sticky;
+top:0;
+left:0;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 18px;
+background:rgba(10,10,10,.95);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.leftHeader{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.headerLogo{
+width:52px;
+height:52px;
+border-radius:50%;
+border:2px solid #ff9800;
+}
+
+.leftHeader h2{
+font-size:20px;
+font-weight:700;
+color:#ff9800;
+}
+
+.leftHeader p{
+font-size:12px;
+color:#bdbdbd;
+}
+
+.rightHeader{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.walletCard{
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+padding:8px 15px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 0 20px rgba(255,152,0,.35);
+}
+
+.walletCard span{
+display:block;
+font-size:11px;
+color:#111;
+font-weight:700;
+}
+
+.walletCard h2{
+font-size:18px;
+font-weight:800;
+color:#111;
+margin-top:2px;
+}
+
+.profilePhoto{
+width:48px;
+height:48px;
+border-radius:50%;
+border:2px solid #ff9800;
+object-fit:cover;
+background:#222;
+}
+
+/* ========================= */
+/* NOTICE BAR */
+/* ========================= */
+
+.noticeBar{
+margin:15px;
+padding:12px;
+border-radius:12px;
+background:rgba(255,152,0,.12);
+border:1px solid rgba(255,152,0,.35);
+}
+
+#noticeText{
+font-size:15px;
+font-weight:600;
+color:#ffb84d;
+}
+
+/* ========================= */
+/* BANNER */
+/* ========================= */
+
+.bannerSlider{
+margin:15px;
+border-radius:18px;
+overflow:hidden;
+position:relative;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.banner{
+display:none;
+}
+
+.banner.active{
+display:block;
+animation:fade .5s;
+}
+
+.banner img{
+width:100%;
+height:190px;
+object-fit:cover;
+display:block;
+}
+/* ========================= */
+/* BOTTOM MENU */
+/* ========================= */
+
+.bottomMenu{
+position:fixed;
+left:0;
+bottom:0;
+width:100%;
+height:75px;
+background:rgba(12,12,12,.98);
+backdrop-filter:blur(14px);
+display:flex;
+align-items:center;
+justify-content:space-around;
+border-top:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.menu{
+flex:1;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+background:none;
+color:#9e9e9e;
+font-size:13px;
+font-weight:600;
+gap:5px;
+transition:.3s;
+}
+
+.menu span{
+font-size:12px;
+}
+
+.menu.active{
+color:#ff9800;
+}
+
+.menu.active::before{
+content:"";
+position:absolute;
+top:0;
+width:45px;
+height:4px;
+border-radius:50px;
+background:#ff9800;
+box-shadow:0 0 12px #ff9800;
+}
+
+.menu:hover{
+color:#ff9800;
+}
+
+/* ========================= */
+/* MATCH CARD */
+/* ========================= */
+
+#homeMatchList,
+#myMatches,
+#joinedPlayers,
+#winnerList,
+#historyList{
+display:grid;
+gap:18px;
+}
+
+.matchCard{
+background:rgba(20,20,20,.95);
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 12px 25px rgba(0,0,0,.28);
+transition:.3s;
+}
+
+.matchCard:hover{
+transform:translateY(-5px);
+box-shadow:0 16px 30px rgba(255,152,0,.25);
+}
+
+.matchCard img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.matchContent{
+padding:18px;
+}
+
+.matchTitle{
+font-size:20px;
+font-weight:700;
+color:#ff9800;
+margin-bottom:10px;
+}
+
+.matchInfo{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+color:#ddd;
+font-size:14px;
+}
+
+.matchPrize{
+font-size:15px;
+font-weight:700;
+color:#00e676;
+margin-bottom:15px;
+}
+
+.joinBtn{
+width:100%;
+height:50px;
+border-radius:12px;
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+color:#111;
+font-size:16px;
+font-weight:700;
+}
+/* ========================= */
+/* MATCH DETAILS */
+/* ========================= */
+
+.selectedMatchCard{
+background:rgba(20,20,20,.95);
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+overflow:hidden;
+margin-bottom:20px;
+box-shadow:0 12px 30px rgba(0,0,0,.30);
+}
+
+.selectedMatchCard img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.selectedMatchCard .content{
+padding:18px;
+}
+
+.selectedMatchCard h2{
+font-size:22px;
+color:#ff9800;
+margin-bottom:10px;
+}
+
+.selectedMatchCard p{
+font-size:15px;
+color:#d7d7d7;
+margin-bottom:8px;
+}
+
+.joinCard{
+background:rgba(18,18,18,.96);
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.joinCard h2{
+font-size:22px;
+color:#ff9800;
+margin-bottom:12px;
+}
+
+#joinMatchBtn{
+width:100%;
+height:52px;
+margin-top:18px;
+border-radius:14px;
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+color:#111;
+font-size:17px;
+font-weight:700;
+}
+
+#joinMatchBtn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(255,152,0,.45);
+}
+
+/* ========================= */
+/* WALLET */
+/* ========================= */
+
+.walletMainCard{
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+border-radius:20px;
+padding:28px;
+text-align:center;
+box-shadow:0 0 25px rgba(255,152,0,.35);
+margin-bottom:22px;
+}
+
+.walletMainCard h1{
+font-size:42px;
+font-weight:800;
+color:#111;
+}
+
+.walletMainCard p{
+margin-top:8px;
+font-size:16px;
+font-weight:600;
+color:#222;
+}
+
+.walletButtons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-bottom:22px;
+}
+
+#depositBtn,
+#withdrawBtn{
+height:52px;
+border-radius:14px;
+font-size:16px;
+font-weight:700;
+}
+
+#depositBtn{
+background:#00c853;
+color:#fff;
+}
+
+#withdrawBtn{
+background:#ff5252;
+color:#fff;
+}
+
+#depositBtn:hover,
+#withdrawBtn:hover{
+transform:translateY(-3px);
+}
+/* ========================= */
+/* PROFILE */
+/* ========================= */
+
+.profileCard{
+background:rgba(20,20,20,.95);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:30px 20px;
+text-align:center;
+box-shadow:0 12px 30px rgba(0,0,0,.30);
+margin-bottom:22px;
+}
+
+.profileImage{
+width:120px;
+height:120px;
+margin:auto;
+border-radius:50%;
+border:4px solid #ff9800;
+object-fit:cover;
+background:#222;
+}
+
+.profileCard h2{
+margin-top:18px;
+font-size:24px;
+font-weight:700;
+color:#ff9800;
+}
+
+.profileCard p{
+margin-top:8px;
+font-size:15px;
+color:#d5d5d5;
+}
+
+#editProfileBtn{
+margin-top:20px;
+width:100%;
+height:52px;
+border-radius:14px;
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+color:#111;
+font-size:16px;
+font-weight:700;
+}
+
+.profileMenu{
+display:grid;
+gap:15px;
+}
+
+.profileMenu button{
+height:54px;
+border-radius:14px;
+background:#1b1b1b;
+border:1px solid rgba(255,255,255,.08);
+color:#fff;
+font-size:16px;
+font-weight:600;
+}
+
+.profileMenu button:hover{
+background:#ff9800;
+color:#111;
+transform:translateY(-3px);
+}
+
+/* ========================= */
+/* RULES */
+/* ========================= */
+
+.rulesCard{
+background:#171717;
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
+padding:22px;
+line-height:1.8;
+font-size:15px;
+color:#d8d8d8;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ========================= */
+/* SUPPORT */
+/* ========================= */
+
+.supportCard{
+display:grid;
+gap:15px;
+}
+
+.supportCard button{
+height:54px;
+border-radius:14px;
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+color:#111;
+font-size:16px;
+font-weight:700;
+}
+
+.supportCard button:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(255,152,0,.40);
+}
+/* ========================= */
+/* ADMIN PANEL */
+/* ========================= */
+
+#adminContent{
+display:grid;
+gap:18px;
+}
+
+.adminGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+
+.adminGrid button{
+height:55px;
+border-radius:14px;
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+color:#111;
+font-size:15px;
+font-weight:700;
+}
+
+.adminGrid button:hover{
+transform:translateY(-3px);
+box-shadow:0 0 18px rgba(255,152,0,.45);
+}
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:rgba(0,0,0,.75);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:99999;
+}
+
+.modalBox{
+width:100%;
+max-width:420px;
+background:#171717;
+border-radius:20px;
+padding:25px;
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+.modalBox h2{
+text-align:center;
+margin-bottom:18px;
+color:#ff9800;
+font-size:24px;
+}
+
+#submitDepositBtn,
+#submitWithdrawBtn{
+width:100%;
+height:54px;
+margin-top:18px;
+border-radius:14px;
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+color:#111;
+font-size:16px;
+font-weight:700;
+}
+
+#submitDepositBtn:hover,
+#submitWithdrawBtn:hover{
+transform:translateY(-3px);
+}
+
+/* ========================= */
+/* WINNER */
+/* ========================= */
+
+#winnerList{
+display:grid;
+gap:16px;
+}
+
+.winnerCard{
+display:flex;
+align-items:center;
+gap:15px;
+padding:18px;
+background:#171717;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.winnerCard img{
+width:65px;
+height:65px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #ff9800;
+}
+
+.winnerCard h3{
+font-size:18px;
+color:#ff9800;
+margin-bottom:6px;
+}
+
+.winnerCard p{
+font-size:14px;
+color:#d5d5d5;
+}
+/* ========================= */
+/* REFERRAL */
+/* ========================= */
+
+.referralCard{
+background:rgba(20,20,20,.95);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:25px;
+text-align:center;
+box-shadow:0 12px 30px rgba(0,0,0,.30);
+}
+
+.referralCard h3{
+font-size:20px;
+color:#ff9800;
+margin-bottom:15px;
+}
+
+#referralCode{
+padding:16px;
+margin:15px 0 20px;
+background:#111;
+border:1px dashed #ff9800;
+border-radius:14px;
+font-size:18px;
+font-weight:700;
+letter-spacing:2px;
+color:#fff;
+word-break:break-all;
+}
+
+#copyReferralBtn{
+width:100%;
+height:54px;
+border-radius:14px;
+background:linear-gradient(135deg,#ff9800,#ff6a00);
+color:#111;
+font-size:16px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+#copyReferralBtn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(255,152,0,.45);
+}
+
+/* ========================= */
+/* LOADING MODAL */
+/* ========================= */
+
+#loadingModal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:rgba(0,0,0,.75);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:999999;
+}
+
+.loaderBox{
+text-align:center;
+}
+
+.loader{
+width:65px;
+height:65px;
+border:6px solid rgba(255,255,255,.12);
+border-top:6px solid #ff9800;
+border-radius:50%;
+margin:auto;
+animation:spin 1s linear infinite;
+}
+
+.loaderBox p{
+margin-top:18px;
+font-size:16px;
+color:#fff;
+}
+
+@keyframes spin{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* ========================= */
+/* TOAST */
+/* ========================= */
+
+#toast{
+position:fixed;
+left:50%;
+bottom:100px;
+transform:translateX(-50%);
+background:#ff9800;
+color:#111;
+padding:14px 22px;
+border-radius:12px;
+font-weight:700;
+opacity:0;
+pointer-events:none;
+transition:.35s;
+z-index:999999;
+}
+
+#toast.show{
+opacity:1;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width:768px){
+
+.adminGrid{
+grid-template-columns:1fr;
+}
+
+.walletButtons{
+grid-template-columns:1fr;
+}
+
+.banner img{
+height:170px;
+}
+
+.headerLogo{
+width:45px;
+height:45px;
+}
+
+.leftHeader h2{
+font-size:17px;
+}
+
+.walletMainCard h1{
+font-size:34px;
+}
+
+.profileImage{
+width:100px;
+height:100px;
+}
+
+}
